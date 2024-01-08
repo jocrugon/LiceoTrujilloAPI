@@ -4,15 +4,13 @@ import java.util.Date;
 
 public class Image {
     private long id;
-    private String filename;
     private String description;
     private String keyword;
     private Date uploadDate;
     private String url;
 
-    public Image(int id, String filename, String description, String keyword, Date uploadDate, String url) {
+    public Image(int id, String description, String keyword, Date uploadDate, String url) {
         this.id = id;
-        this.filename = filename;
         this.description = description;
         this.keyword = keyword;
         this.uploadDate = uploadDate;
@@ -25,14 +23,6 @@ public class Image {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
     }
 
     public String getDescription() {

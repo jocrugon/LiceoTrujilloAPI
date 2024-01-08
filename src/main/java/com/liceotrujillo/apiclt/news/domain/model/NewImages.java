@@ -4,11 +4,13 @@ public class NewImages {
     private long id;
     private long imageId;
     private long newId;
+    private boolean coverImage;
 
-    public NewImages(long id, long imageId, long newId) {
+    public NewImages(long id, long imageId, long newId, boolean coverImage) {
         this.id = id;
         this.imageId = imageId;
         this.newId = newId;
+        this.coverImage = coverImage;
     }
 
     public long getId() {
@@ -33,5 +35,13 @@ public class NewImages {
 
     public void setNewId(long newId) {
         this.newId = newId;
+    }
+
+    public boolean isCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(boolean coverImage) {
+        this.coverImage = coverImage;
     }
 }
