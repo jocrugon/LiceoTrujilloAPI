@@ -22,6 +22,11 @@ public class ImageUseCase implements IImageServicePort {
     }
 
     @Override
+    public List<Image> getAllImagesByNewsId(Long id) {
+        return imagePersistencePort.getAllImagesByNewsId(id);
+    }
+
+    @Override
     public Image getImageById(long id) {
         return imagePersistencePort.getImageById(id);
     }
