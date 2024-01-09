@@ -3,15 +3,16 @@ package com.liceotrujillo.apiclt.news.domain.model;
 import java.util.Date;
 
 public class News {
-    private long id;
+    private Long id;
     private String author;
     private String body;
     private Date creationDate;
-    private int tagId;
+    private Long tagId;
     private String title;
     private boolean fixed;
+    private Long categoryId;
 
-    public News(long id, String author, String body, Date creationDate, int tagId, String title, boolean fixed) {
+    public News(Long id, String author, String body, Date creationDate, Long tagId, String title, boolean fixed, Long categoryId) {
         this.id = id;
         this.author = author;
         this.body = body;
@@ -19,13 +20,14 @@ public class News {
         this.tagId = tagId;
         this.title = title;
         this.fixed = fixed;
+        this.categoryId = categoryId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +55,11 @@ public class News {
         this.creationDate = creationDate;
     }
 
-    public int getTagId() {
+    public Long getTagId() {
         return tagId;
     }
 
-    public void setTagId(int tagId) {
+    public void setTagId(Long tagId) {
         this.tagId = tagId;
     }
 
@@ -75,5 +77,13 @@ public class News {
 
     public void setFixed(boolean fixed) {
         this.fixed = fixed;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }

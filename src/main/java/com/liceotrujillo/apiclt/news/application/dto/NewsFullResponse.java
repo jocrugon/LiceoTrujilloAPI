@@ -1,6 +1,5 @@
 package com.liceotrujillo.apiclt.news.application.dto;
 
-import com.liceotrujillo.apiclt.news.domain.model.TagNews;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,13 +8,12 @@ import java.util.List;
 @Getter
 @Setter
 public class NewsFullResponse {
-    private CategoryNewsDTO category;
-    private TagNewsDTO tag;
+    private CategoryNewsDto category;
+    private TagNewsDto tag;
     private String title;
     private String author;
     private boolean isFixed;
     private String body;
     private Date creationDate;
-    private List<ImageDTO> images;
-
+    private List<ImageDto> images;
 }

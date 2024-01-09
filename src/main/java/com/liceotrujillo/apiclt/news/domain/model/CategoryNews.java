@@ -1,21 +1,21 @@
 package com.liceotrujillo.apiclt.news.domain.model;
 
 public class CategoryNews {
-    private long id;
+    private Long id;
     private String category;
     private String description;
 
-    public CategoryNews(int id, String category, String description) {
+    public CategoryNews(Long id, String category, String description) {
         this.id = id;
         this.category = category;
         this.description = description;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

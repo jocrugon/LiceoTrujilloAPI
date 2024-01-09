@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CategoryNewsDTO {
-    private String category;
+public class TagNewsDto {
+    private String tag;
     private String description;
 }

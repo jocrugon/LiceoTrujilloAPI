@@ -3,25 +3,27 @@ package com.liceotrujillo.apiclt.news.domain.model;
 import java.util.Date;
 
 public class Image {
-    private long id;
+    private Long id;
     private String description;
-    private String keyword;
     private Date uploadDate;
     private String url;
+    private Long newsId;
+    private boolean coverImage;
 
-    public Image(int id, String description, String keyword, Date uploadDate, String url) {
+    public Image(Long id, String description, Date uploadDate, String url, Long newsId, boolean coverImage) {
         this.id = id;
         this.description = description;
-        this.keyword = keyword;
         this.uploadDate = uploadDate;
         this.url = url;
+        this.newsId = newsId;
+        this.coverImage = coverImage;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,14 +33,6 @@ public class Image {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
     }
 
     public Date getUploadDate() {
@@ -55,5 +49,21 @@ public class Image {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Long getNewsId() {
+        return newsId;
+    }
+
+    public void setNewsId(Long newsId) {
+        this.newsId = newsId;
+    }
+
+    public boolean isCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(boolean coverImage) {
+        this.coverImage = coverImage;
     }
 }

@@ -1,21 +1,21 @@
 package com.liceotrujillo.apiclt.news.domain.model;
 
 public class TagNews {
-    private long id;
+    private Long id;
     private String tag;
     private String description;
 
-    public TagNews(long id, String tag, String description) {
+    public TagNews(Long id, String tag, String description) {
         this.id = id;
         this.tag = tag;
         this.description = description;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
