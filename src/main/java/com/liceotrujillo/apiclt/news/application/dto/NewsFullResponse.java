@@ -15,5 +15,5 @@ public class NewsFullResponse {
     private boolean isFixed;
     private String body;
     private Date creationDate;
-    private List<ImageDto> images;
+    private List<ImageNewsDto> images;
 }

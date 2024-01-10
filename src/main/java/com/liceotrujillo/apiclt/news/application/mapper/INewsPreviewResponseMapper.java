@@ -2,7 +2,7 @@ package com.liceotrujillo.apiclt.news.application.mapper;
 
 import com.liceotrujillo.apiclt.news.application.dto.NewsPreviewResponse;
 import com.liceotrujillo.apiclt.news.domain.model.CategoryNews;
-import com.liceotrujillo.apiclt.news.domain.model.Image;
+import com.liceotrujillo.apiclt.news.domain.model.ImageNews;
 import com.liceotrujillo.apiclt.news.domain.model.News;
 import com.liceotrujillo.apiclt.news.domain.model.TagNews;
 import org.mapstruct.Mapper;
@@ -15,7 +15,7 @@ import java.util.List;
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface INewsPreviewResponseMapper {
 
-    default List<NewsPreviewResponse> toListResponse(List<News> newsList, List<CategoryNews> categoryList, List<TagNews> tagNewsList, List<Image> imageList){
+    default List<NewsPreviewResponse> toListResponse(List<News> newsList, List<CategoryNews> categoryList, List<TagNews> tagNewsList, List<ImageNews> imageNewsList){
         return newsList.stream()
                 .map(news->{
                     NewsPreviewResponse newsPreviewResponse = new NewsPreviewResponse();
@@ -33,9 +33,8 @@ public interface INewsPreviewResponseMapper {
                                     .findFirst().orElse(null).getTag()
                     );
                     newsPreviewResponse.setUrlCoverImage(
-                            imageList.stream().filter( image->
+                            imageNewsList.stream().filter(image->
                                     image.getNewsId().equals(news.getId()))
-                                    .filter(Image::isCoverImage)
                                     .findFirst().orElse(null).getUrl()
                     );
                     return newsPreviewResponse;

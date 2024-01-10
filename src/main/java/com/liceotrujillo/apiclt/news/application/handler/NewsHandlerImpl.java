@@ -33,7 +33,7 @@ public class NewsHandlerImpl implements INewsHandler{
                 newsServicePort.getAllNews(),
                 categoryServicePort.getAllCategories(),
                 tagServicePort.getAllTags(),
-                imageServicePort.getAllImages()
+                imageServicePort.getAllCoverImage()
         );
     }
 

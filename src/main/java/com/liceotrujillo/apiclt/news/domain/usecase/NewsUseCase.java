@@ -12,14 +12,15 @@ public class NewsUseCase implements INewsServicePort {
     public NewsUseCase(INewsPersistencePort newsPersistencePort){
         this.newsPersistencePort = newsPersistencePort;
     }
+
     @Override
-    public void saveNews(News news) {
-        newsPersistencePort.saveNews(news);
+    public Long saveNews(News news) {
+        return newsPersistencePort.saveNews(news);
     }
 
     @Override
-    public List<News> getAllNews() {
-        return newsPersistencePort.getAllNews();
+    public List<News> getAllActiveNews() {
+        return newsPersistencePort.getAllActiveNews();
     }
 
     @Override
@@ -30,10 +31,5 @@ public class NewsUseCase implements INewsServicePort {
     @Override
     public void updateNews(News news) {
         newsPersistencePort.updateNews(news);
-    }
-
-    @Override
-    public void deleteNewsById(long id) {
-        newsPersistencePort.deleteNewsById(id);
     }
 }

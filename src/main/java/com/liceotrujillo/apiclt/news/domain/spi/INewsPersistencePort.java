@@ -5,9 +5,8 @@ import com.liceotrujillo.apiclt.news.domain.model.News;
 import java.util.List;
 
 public interface INewsPersistencePort {
-    void saveNews(News news);
-    List<News> getAllNews();
+    Long saveNews(News news);
+    List<News> getAllActiveNews();
     News getNewsById(long id);
     void updateNews(News news);
-    void deleteNewsById(long id);
 }

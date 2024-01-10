@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.util.Date;
 @Getter
 @Setter
-public class ImageDto {
+public class ImageNewsDto {
     private String description;
     private Date uploadDate;
     private String url;

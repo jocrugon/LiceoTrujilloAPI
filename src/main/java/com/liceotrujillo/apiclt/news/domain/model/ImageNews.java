@@ -2,7 +2,7 @@ package com.liceotrujillo.apiclt.news.domain.model;
 
 import java.util.Date;
 
-public class Image {
+public class ImageNews {
     private Long id;
     private String description;
     private Date uploadDate;
@@ -10,7 +10,7 @@ public class Image {
     private Long newsId;
     private boolean coverImage;
 
-    public Image(Long id, String description, Date uploadDate, String url, Long newsId, boolean coverImage) {
+    public ImageNews(Long id, String description, Date uploadDate, String url, Long newsId, boolean coverImage) {
         this.id = id;
         this.description = description;
         this.uploadDate = uploadDate;

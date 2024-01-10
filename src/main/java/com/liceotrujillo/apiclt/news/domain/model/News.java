@@ -11,8 +11,9 @@ public class News {
     private String title;
     private boolean fixed;
     private Long categoryId;
+    private boolean active;
 
-    public News(Long id, String author, String body, Date creationDate, Long tagId, String title, boolean fixed, Long categoryId) {
+    public News(Long id, String author, String body, Date creationDate, Long tagId, String title, boolean fixed, Long categoryId, boolean active) {
         this.id = id;
         this.author = author;
         this.body = body;
@@ -21,6 +22,7 @@ public class News {
         this.title = title;
         this.fixed = fixed;
         this.categoryId = categoryId;
+        this.active = active;
     }
 
     public Long getId() {
@@ -85,5 +87,13 @@ public class News {
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
