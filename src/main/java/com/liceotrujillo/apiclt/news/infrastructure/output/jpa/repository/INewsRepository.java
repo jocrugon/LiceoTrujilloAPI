@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface INewsRepository extends JpaRepository<NewsEntity,Long> {
-    Optional<List<NewsEntity>> findAllActiveTrue();
+    Optional<List<NewsEntity>> findAllByActiveTrue();
 }

@@ -22,7 +22,7 @@ public class NewsJpaAdapter implements INewsPersistencePort {
 
     @Override
     public List<News> getAllActiveNews() {
-        return mapper.toNewsList(repository.findAllActiveTrue().orElseThrow(NoDataFoundException::new));
+        return mapper.toNewsList(repository.findAllByActiveTrue().orElseThrow(NoDataFoundException::new));
     }
 
     @Override

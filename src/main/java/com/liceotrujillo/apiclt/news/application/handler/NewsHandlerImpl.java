@@ -30,7 +30,7 @@ public class NewsHandlerImpl implements INewsHandler{
     @Override
     public List<NewsPreviewResponse> getAllNewsPreview() {
         return newsPreviewResponseMapper.toListResponse(
-                newsServicePort.getAllNews(),
+                newsServicePort.getAllActiveNews(),
                 categoryServicePort.getAllCategories(),
                 tagServicePort.getAllTags(),
                 imageServicePort.getAllCoverImage()

@@ -28,4 +28,5 @@ public class NewsEntity {
     private boolean fixed;
     @Column(name = "category_id")
     private Long categoryId;
+    private boolean active;
 }
