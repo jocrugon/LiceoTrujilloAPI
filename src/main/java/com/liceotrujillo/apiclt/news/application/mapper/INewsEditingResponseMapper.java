@@ -17,11 +17,6 @@ public interface INewsEditingResponseMapper {
     @Mappings({
             @Mapping(source = "categoryNews", target = "category"),
             @Mapping(source = "tagNews", target = "tag"),
-            @Mapping(source = "news.title",target = "title"),
-            @Mapping(source = "news.author",target = "author"),
-            @Mapping(source = "news.isFixed",target = "isFixed"),
-            @Mapping(source = "news.body",target = "body"),
-            @Mapping(source = "news.creationDate",target = "creationDate")
     })
     NewsEditingResponse toResponse( News news, CategoryNews categoryNews, TagNews tagNews);
 }
