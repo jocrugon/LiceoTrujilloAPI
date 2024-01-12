@@ -1,7 +1,11 @@
 package com.liceotrujillo.apiclt.news.application.dto;
 
-import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.Date;
+@Getter
+@Setter
 public class NewsEditingRequest {
     private String author;
     private String body;

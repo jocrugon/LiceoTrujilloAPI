@@ -8,6 +8,7 @@ import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.mapper.IImageNews
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.IImageNewsRepository;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 @RequiredArgsConstructor
 public class ImageNewsJpaAdapter implements IImagePersistencePort {
@@ -27,6 +28,8 @@ public class ImageNewsJpaAdapter implements IImagePersistencePort {
 
     @Override
     public List<ImageNews> getAllCoverImage() {
-        return mapper.toImageNewsList(repository.findByCoverImageTrue().orElseThrow(NoDataFoundException::new));
+        List<ImageNewsEntity> newsEntityList = repository.findByCoverImageTrue().orElse(new ArrayList<>());
+
+        return mapper.toImageNewsList(newsEntityList);
     }
 }

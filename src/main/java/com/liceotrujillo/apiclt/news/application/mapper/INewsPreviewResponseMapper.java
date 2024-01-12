@@ -32,11 +32,11 @@ public interface INewsPreviewResponseMapper {
                                     tag.getId().equals(news.getTagId()))
                                     .findFirst().orElse(null).getTag()
                     );
-                    newsPreviewResponse.setUrlCoverImage(
-                            imageNewsList.stream().filter(image->
+                    ImageNews imageCover = imageNewsList.stream().filter(image->
                                     image.getNewsId().equals(news.getId()))
-                                    .findFirst().orElse(null).getUrl()
-                    );
+                            .findFirst().orElse(null);
+
+                    newsPreviewResponse.setUrlCoverImage(imageCover!=null?imageCover.getUrl():null);
                     return newsPreviewResponse;
                 }).toList();
     }

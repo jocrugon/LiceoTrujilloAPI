@@ -7,7 +7,7 @@ spring:
     password: 948900930
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update #create-drop
     show-sql: true
 
 appDescription: "Liceo Trujillo API"
