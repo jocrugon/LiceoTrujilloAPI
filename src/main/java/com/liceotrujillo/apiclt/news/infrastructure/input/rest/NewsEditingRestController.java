@@ -46,7 +46,7 @@ public class NewsEditingRestController {
     }
 
     @PostMapping("/image")
-    public ResponseEntity<Void> saveImage(@RequestBody ImageNewsRequest imageNewsRequest){
+    public ResponseEntity<Void> saveImage(@RequestBody ImageNewsRequest imageNewsRequest){//te tiene que regresar el id
         handler.saveImage(imageNewsRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
