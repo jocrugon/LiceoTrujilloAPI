@@ -17,3 +17,12 @@ appVersion: "1.0.0"
 springdoc:
   swagger-ui:
     path: /index.html
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA3FLD53MDSJ5JG6GN
+      secret-key: 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
+    region:
+      static: us-east-2
+      auto: false
