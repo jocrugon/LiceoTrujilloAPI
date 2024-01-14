@@ -18,6 +18,8 @@ springdoc:
   swagger-ui:
     path: /index.html
 
+
+#aws
 cloud:
   aws:
     credentials:
@@ -26,3 +28,4 @@ cloud:
     region:
       static: us-east-2
       auto: false
+
