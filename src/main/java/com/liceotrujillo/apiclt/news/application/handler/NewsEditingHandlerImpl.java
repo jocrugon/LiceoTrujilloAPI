@@ -15,6 +15,7 @@ import com.liceotrujillo.apiclt.news.domain.model.TagNews;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 @Service
@@ -60,6 +61,11 @@ public class NewsEditingHandlerImpl implements INewsEditingHandler{
     @Override
     public void saveImage(ImageNewsRequest imageNewsRequest) {
         imageServicePort.saveImage(imageNewsRequestMapper.toImageNews(imageNewsRequest));
+    }
+
+    @Override
+    public String saveImageInS3(MultipartFile imageFile) {
+        return imageServicePort.saveImageInS3(imageFile);
     }
 
     @Override

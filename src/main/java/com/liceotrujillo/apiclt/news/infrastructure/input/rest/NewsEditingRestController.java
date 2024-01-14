@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -45,11 +46,14 @@ public class NewsEditingRestController {
     }
 
     @PostMapping("/image")
-    public ResponseEntity<Void> saveImage(ImageNewsRequest imageNewsRequest){
+    public ResponseEntity<Void> saveImage(@RequestBody ImageNewsRequest imageNewsRequest){
         handler.saveImage(imageNewsRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
+    @PostMapping("/imageS3")
+    public ResponseEntity<String> saveImageS3(@RequestParam MultipartFile imageFile){
+        return ResponseEntity.ok(handler.saveImageInS3(imageFile));
+    }
     @GetMapping("/image")
     public ResponseEntity<List<ImageNewsDto>> getImagesByNewsId(Long id){
         return ResponseEntity.ok(handler.getImagesByNewsId(id));

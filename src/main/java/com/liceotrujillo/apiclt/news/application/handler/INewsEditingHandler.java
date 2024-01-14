@@ -4,6 +4,7 @@ import com.liceotrujillo.apiclt.news.application.dto.*;
 import com.liceotrujillo.apiclt.news.domain.model.CategoryNews;
 import com.liceotrujillo.apiclt.news.domain.model.News;
 import com.liceotrujillo.apiclt.news.domain.model.TagNews;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,5 +15,6 @@ public interface INewsEditingHandler {
     NewsEditingResponse getNewsEditingById(Long id);
     void updateNews(News news);
     void saveImage(ImageNewsRequest imageNewsRequest);
+    String saveImageInS3(MultipartFile imageFile);
     List<ImageNewsDto> getImagesByNewsId(Long id);
 }

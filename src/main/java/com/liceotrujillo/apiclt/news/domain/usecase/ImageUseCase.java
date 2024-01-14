@@ -3,6 +3,7 @@ package com.liceotrujillo.apiclt.news.domain.usecase;
 import com.liceotrujillo.apiclt.news.domain.api.IImageServicePort;
 import com.liceotrujillo.apiclt.news.domain.model.ImageNews;
 import com.liceotrujillo.apiclt.news.domain.spi.IImagePersistencePort;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -13,8 +14,13 @@ public class ImageUseCase implements IImageServicePort {
     }
 
     @Override
-    public ImageNews saveImage(ImageNews imageNews) {
-        return persistencePort.saveImage(imageNews);
+    public void saveImage(ImageNews imageNews) {
+        persistencePort.saveImage(imageNews);
+    }
+
+    @Override
+    public String saveImageInS3(MultipartFile imageFile) {
+        return persistencePort.saveImageInS3(imageFile);
     }
 
     @Override

@@ -24,7 +24,7 @@ import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.ICateg
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.IImageNewsRepository;
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.INewsRepository;
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.ITagNewsRepository;
-import com.liceotrujillo.apiclt.news.infrastructure.output.s3.AwsS3Config;
+import com.liceotrujillo.apiclt.news.infrastructure.output.s3.AwsS3Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +40,7 @@ public class BeanConfiguration {
     private final INewsRepository newsRepository;
     private final ITagNewsEntityMapper tagNewsEntityMapper;
     private final ITagNewsRepository tagNewsRepository;
-    private final AwsS3Config awsS3Config;
+    private final AwsS3Service awsS3Service;
 
 
     @Bean
@@ -63,7 +63,7 @@ public class BeanConfiguration {
 
     @Bean
     public IImagePersistencePort imagePersistencePort(){
-        return new ImageNewsJpaAdapter(imageNewsEntityMapper,imageNewsRepository,awsS3Config);
+        return new ImageNewsJpaAdapter(imageNewsEntityMapper,imageNewsRepository,awsS3Service);
     }
     @Bean
     public IImageServicePort imageServicePort(){

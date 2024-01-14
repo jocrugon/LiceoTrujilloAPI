@@ -6,9 +6,8 @@ import com.liceotrujillo.apiclt.news.infrastructure.exception.NoDataFoundExcepti
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.entity.ImageNewsEntity;
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.mapper.IImageNewsEntityMapper;
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.IImageNewsRepository;
-import com.liceotrujillo.apiclt.news.infrastructure.output.s3.AwsS3Config;
+import com.liceotrujillo.apiclt.news.infrastructure.output.s3.AwsS3Service;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -18,17 +17,19 @@ public class ImageNewsJpaAdapter implements IImagePersistencePort {
 
     private final IImageNewsEntityMapper mapper;
     private final IImageNewsRepository repository;
-    private final AwsS3Config awsS3Config;
+    private final AwsS3Service awsS3Service;
 
     @Override
-    public ImageNews saveImage(ImageNews imageNews) {
-        return mapper.toImageNews(repository.save(mapper.toEntity(imageNews)));
+    public void saveImage(ImageNews imageNews) {
+        repository.save(mapper.toEntity(imageNews));
     }
-    public String saveImageS3(MultipartFile multipartFile){
-        String keyImage = awsS3Config.putObject(multipartFile);
-        return awsS3Config.getUrlImage(keyImage);
 
+    @Override
+    public String saveImageInS3(MultipartFile imageFile) {
+        String imageKey = awsS3Service.putObject(imageFile);
+        return awsS3Service.getUrlImage(imageKey);
     }
+
     @Override
     public List<ImageNews> getAllImagesByNewsId(Long id) {
         return mapper.toImageNewsList(repository.findByNewsId(id).orElseThrow(NoDataFoundException::new));
