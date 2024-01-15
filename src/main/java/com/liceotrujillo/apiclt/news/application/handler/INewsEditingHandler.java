@@ -15,6 +15,5 @@ public interface INewsEditingHandler {
     NewsEditingResponse getNewsEditingById(Long id);
     void updateNews(News news);
     void saveImage(ImageNewsRequest imageNewsRequest);
-    String saveImageInS3(MultipartFile imageFile);
     List<ImageNewsDto> getImagesByNewsId(Long id);
 }

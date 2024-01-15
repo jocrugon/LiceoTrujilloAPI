@@ -60,12 +60,7 @@ public class NewsEditingHandlerImpl implements INewsEditingHandler{
 
     @Override
     public void saveImage(ImageNewsRequest imageNewsRequest) {
-        imageServicePort.saveImage(imageNewsRequestMapper.toImageNews(imageNewsRequest));
-    }
-
-    @Override
-    public String saveImageInS3(MultipartFile imageFile) {
-        return imageServicePort.saveImageInS3(imageFile);
+        imageServicePort.saveImage(imageNewsRequestMapper.toImageNews(imageNewsRequest),imageNewsRequest.getImageFile());
     }
 
     @Override

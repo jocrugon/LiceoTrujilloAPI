@@ -6,8 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface IImagePersistencePort {
-    void saveImage(ImageNews imageNews);
-    String saveImageInS3(MultipartFile imageFile);
+    void saveImage(ImageNews imageNews,MultipartFile imageFile);
     List<ImageNews> getAllImagesByNewsId(Long id);
     List<ImageNews> getAllCoverImage();
 }

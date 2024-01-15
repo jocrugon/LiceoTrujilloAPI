@@ -14,13 +14,8 @@ public class ImageUseCase implements IImageServicePort {
     }
 
     @Override
-    public void saveImage(ImageNews imageNews) {
-        persistencePort.saveImage(imageNews);
-    }
-
-    @Override
-    public String saveImageInS3(MultipartFile imageFile) {
-        return persistencePort.saveImageInS3(imageFile);
+    public void saveImage(ImageNews imageNews,MultipartFile imageFile ) {
+        persistencePort.saveImage(imageNews,imageFile);
     }
 
     @Override

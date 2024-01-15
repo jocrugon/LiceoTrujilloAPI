@@ -8,6 +8,7 @@ import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.mapper.IImageNews
 import com.liceotrujillo.apiclt.news.infrastructure.output.jpa.repository.IImageNewsRepository;
 import com.liceotrujillo.apiclt.news.infrastructure.output.s3.AwsS3Service;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -20,15 +21,13 @@ public class ImageNewsJpaAdapter implements IImagePersistencePort {
     private final AwsS3Service awsS3Service;
 
     @Override
-    public void saveImage(ImageNews imageNews) {
+    @Transactional
+    public void saveImage(ImageNews imageNews,MultipartFile imageFile ) {
+        String imageKey = awsS3Service.putObject(imageFile);
+        imageNews.setUrl(awsS3Service.getUrlImage(imageKey));
         repository.save(mapper.toEntity(imageNews));
     }
 
-    @Override
-    public String saveImageInS3(MultipartFile imageFile) {
-        String imageKey = awsS3Service.putObject(imageFile);
-        return awsS3Service.getUrlImage(imageKey);
-    }
 
     @Override
     public List<ImageNews> getAllImagesByNewsId(Long id) {

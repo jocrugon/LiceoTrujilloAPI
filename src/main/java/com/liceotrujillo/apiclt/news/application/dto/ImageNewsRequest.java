@@ -10,6 +10,7 @@ import java.util.Date;
 public class ImageNewsRequest {
     private String description;
     private Date uploadDate;
+    private MultipartFile imageFile;
     private Long newsId;
     private boolean coverImage;
 }

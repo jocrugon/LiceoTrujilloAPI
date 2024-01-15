@@ -46,13 +46,9 @@ public class NewsEditingRestController {
     }
 
     @PostMapping("/image")
-    public ResponseEntity<Void> saveImage(@RequestBody ImageNewsRequest imageNewsRequest){//te tiene que regresar el id
+    public ResponseEntity<Void> saveImage(@ModelAttribute ImageNewsRequest imageNewsRequest){
         handler.saveImage(imageNewsRequest);
         return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-    @PostMapping("/imageS3")
-    public ResponseEntity<String> saveImageS3(@RequestParam MultipartFile imageFile){
-        return ResponseEntity.ok(handler.saveImageInS3(imageFile));
     }
     @GetMapping("/image")
     public ResponseEntity<List<ImageNewsDto>> getImagesByNewsId(Long id){
