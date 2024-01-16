@@ -17,3 +17,6 @@ appVersion: "1.0.0"
 springdoc:
   swagger-ui:
     path: /index.html
+logging:
+  level:
+    org.springframework.security.web.*: debug
