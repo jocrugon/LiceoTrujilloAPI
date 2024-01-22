@@ -14,9 +14,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,11 +33,13 @@ class TagNewsJpaAdapterTest {
         List<TagNewsEntity> tagNewsEntityList = Arrays.asList(
                 new TagNewsEntity(1L,"tag1","description1"),
                 new TagNewsEntity(2L,"tag2","description2"));
-        when(repository.findAll()).thenReturn(tagNewsEntityList);
 
-        when(mapper.toTagNewsList(tagNewsEntityList)).thenReturn(Arrays.asList(
+        List<TagNews> tagNewsList = Arrays.asList(
                 new TagNews(1L,"tag1","description1"),
-                new TagNews(2L,"tag2","description2")));
+                new TagNews(2L,"tag2","description2"));
+
+        when(repository.findAll()).thenReturn(tagNewsEntityList);
+        when(mapper.toTagNewsList(tagNewsEntityList)).thenReturn(tagNewsList);
 
         final List<TagNews> result = tagNewsJpaAdapter.getAllTags();
         verify(repository, times(1)).findAll();
@@ -45,7 +47,20 @@ class TagNewsJpaAdapterTest {
 
         assertNotNull(result);
         assertFalse(result.isEmpty());
+    }
+    @Test
+    public void testGetTagNewsByMockito(){
+        TagNewsEntity tagNewsEntity = new TagNewsEntity(1L,"tag1","description1");
+        TagNews tagNews = new TagNews(1L,"tag1","description1");
+
+        when(repository.findById(1L)).thenReturn(Optional.of(tagNewsEntity));
+        when(mapper.toTagNews(tagNewsEntity)).thenReturn(tagNews);
+
+        final TagNews result = tagNewsJpaAdapter.getTagById(1L);
+        verify(repository, times(1)).findById(1L);
+        verify(mapper, times(1)).toTagNews(tagNewsEntity);
+
+        assertNotNull(result);
 
     }
-
 }
