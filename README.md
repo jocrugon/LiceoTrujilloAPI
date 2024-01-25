@@ -1,1 +1,5 @@
-# Liceo Trujillo API
+## 🚀 Proyecto de Desarrollo de API REST con Spring Boot y AWS
+
+Estoy emocionado de compartir el reciente proyecto que estoy desarrollando: un robusto sistema API REST desarrollado con Spring Boot en Java usando arquitectura Hexagonal; permitiendo una fácil adaptabilidad a medida que crezca el proyecto, facilitando el mantenimiento y escalabilidad. Además, implementé Swagger para la documentación automática de la API.
+La base de datos utilizada es MySQL que se encuentra alojada en Amazon RDS en AWS, proporcionando escalabilidad, disponibilidad y facilidad de administración. También el uso de Amazon S3 para el almacenamiento recursos multimedia, en este caso imágenes para las noticias.
+En el proyecto implementé Spring Security con emisión y validación de tokens para asegurar un sistema seguro y protegido contra amenazas externas, asimismo se realizó test unitarios con Junit y Mockito para garantizar la robustez del sistema. Todo el proyecto se encuentra versionado con Git y alojado en GitHub.
