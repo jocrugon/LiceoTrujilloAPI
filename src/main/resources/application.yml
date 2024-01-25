@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/liceotrujillo
-    username: root
-    password: 948900930
+    url: jdbc:mysql://liceotrujillo.c7ggk8k46269.us-east-2.rds.amazonaws.com:3306/liceotrujillo_db
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
   jpa:
     hibernate:
       ddl-auto: update #create-drop
